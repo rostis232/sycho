@@ -1,0 +1,24 @@
+{{define "profile"}}
+{{block "header" .}}
+{{end}}
+<div class="container">
+    <div class="row">
+        <div class="col">
+                <h1>Ваш профіль</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h4><strong>Ім'я та прізвище: </strong>{{ .StringMap.first_name }} {{ .StringMap.last_name }}</h4>
+            <p><strong>Роль: </strong>{{ .StringMap.role }}</p>
+            <p><strong>Електронна пошта: </strong>{{ .StringMap.email }}</p>
+            <p><strong>Телефон: </strong>{{ .StringMap.phone }}</p>
+            <p><strong>Організація: </strong>{{ .StringMap.org_title }} ({{ .StringMap.org_code }})</p>
+        </div>
+    </div>
+
+</div>
+
+{{block "footer" .}}
+{{end}}
+{{end}}

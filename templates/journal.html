@@ -1,0 +1,42 @@
+{{define "journal"}}
+{{block "header" .}}
+{{end}}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Журнал консульацій</h1>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Дата та час</th>
+                        <th scope="col">Запит</th>
+                        <th scope="col">Опис</th>
+                        <th scope="col">Перейти</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{range .Data.act}}
+                    <tr>
+                        <th scope="row">{{.ActId}}</th>
+                        <td>{{.Time}}</td>
+                        <td>{{.Req}}</td>
+                        <td>{{.Desc}}</td>
+                        <td><a href="/activities/{{.ActId}}"><button type="button" class="btn btn-light">Перейти</button></a></td>
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{{block "footer" .}}
+{{end}}
+{{end}}

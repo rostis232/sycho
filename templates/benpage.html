@@ -1,0 +1,56 @@
+{{define "benpage"}}
+{{block "header" .}}
+{{end}}
+<div class="container">
+    <div class="row">
+        <div class="col">
+                <h1>{{ .Data.ben.FirstName}} {{ .Data.ben.MiddleName }} {{ .Data.ben.LastName }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p><strong>Телефон: </strong>{{ .Data.ben.Phone }}</p>
+            <p><strong>Дата народження: </strong>{{ .Data.ben.BirthDay }}</p>
+            <p><strong>Проєкт: </strong>{{ .Data.ben.PrjId }}</p>
+            <p><strong>Організація: </strong>{{ .Data.ben.OrgId }}</p>
+            <p><strong>Психолог: </strong>{{ .Data.ben.UserId }}</p>
+            <p><strong>Завершено: </strong>{{ .Data.ben.Done }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h3>Консультації</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Дата та час</th>
+                        <th scope="col">Запит</th>
+                        <th scope="col">Опис</th>
+                        <th scope="col">Перейти</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{range .Data.acts}}
+                    <tr>
+                        <th scope="row">{{.ActId}}</th>
+                        <td>{{.Time}}</td>
+                        <td>{{.Req}}</td>
+                        <td>{{.Desc}}</td>
+                        <td><a href="/activities/{{.ActId}}"><button type="button" class="btn btn-light">Перейти</button></a></td>
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{{block "footer" .}}
+{{end}}
+{{end}}

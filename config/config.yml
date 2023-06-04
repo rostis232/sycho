@@ -1,0 +1,13 @@
+db:
+  host: "localhost"
+  port: "5436"
+  username: "postgres"
+  password: "psychopass2023"
+  dbname: "postgres"
+  sslmode: "disable"
+
+app:
+  port: "8080"
+
+template:
+  sitename: "Карітас України"
