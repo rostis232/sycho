@@ -43,16 +43,13 @@ func NewApp(dbconf repository.Config) *App {
 	a.server.GET(models.Login.URI, a.handler.LogInGet)
 	a.server.POST(models.Login.URI, a.handler.LogInPost)
 	a.server.GET(models.Help.URI, a.handler.Help)
-	a.server.GET(models.Instructions.URI, a.handler.Instructions)
 	a.server.GET(models.Clients.URI, a.handler.Clients)
 	a.server.GET(models.Journal.URI, a.handler.Journal)
 	a.server.GET(models.Profile.URI, a.handler.Profile)
 	a.server.GET(models.Logout.URI, a.handler.Logout)
-	a.server.GET(models.Organisations.URI, a.handler.Organisations)
-	a.server.POST(models.Organisations.URI, a.handler.OrganisationsPost)
-	a.server.GET(models.Projects.URI, a.handler.Projects)
-	a.server.GET("/organisations/add", a.handler.AddOrganisation)
 	a.server.GET(models.Clients.URI+"/:id", a.handler.BeneficiaryPage)
+	a.server.GET("/register", a.handler.RegistrationGET)
+	a.server.POST("/register", a.handler.RegistrationPOST)
 	return a
 }
 

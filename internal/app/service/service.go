@@ -9,8 +9,8 @@ import (
 type Authorization interface {
 	CreateAndSaveUUID(login, password string) (string, error)
 	GetUserByUUID(uuid string) (models.User, error)
-	GetUsersOrganisation(orgID int) (models.Organisation, error)
 	DeleteUUID(uuid string) error
+	NewUserRegistration (login, pass, fName, lName, email, phone string) error
 }
 
 type Beneficiary interface {
@@ -21,21 +21,11 @@ type Beneficiary interface {
 
 type Activity interface{}
 
-type Organisation interface {
-	GetAllOrganisations() ([]models.Organisation, error)
-	AddOrganisation(title, code string) (int, error)
-}
-
-type Project interface {
-	GetAllProjects() ([]models.Project, error)
-}
 
 type Service struct {
 	Authorization
 	Beneficiary
 	Activity
-	Organisation
-	Project
 }
 
 func NewService (repo repository.Repository) *Service {
@@ -43,7 +33,5 @@ func NewService (repo repository.Repository) *Service {
 		Authorization: NewAuthService(repo.Authorization),
 		Beneficiary: NewBenService(repo.Beneficiary),
 		Activity: NewActivityService(repo.Activity),
-		Organisation: NewOrganisationService(repo.Organisation),
-		Project: NewProjectService(repo.Project),
 	}
 }

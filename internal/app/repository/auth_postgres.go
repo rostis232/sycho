@@ -42,13 +42,6 @@ func (a *AuthorizationPostgres) GetUserByUUID(uuid string) (models.User, error) 
 	return user, err
 }
 
-func (a *AuthorizationPostgres) GetUsersOrganisation(orgID int) (models.Organisation, error) {
-	var org models.Organisation
-	query := fmt.Sprintf("SELECT * FROM %s WHERE org_id=$1", organisationsTable)
-	err := a.db.Get(&org, query, orgID)
-	return org, err
-}
-
 func (a *AuthorizationPostgres) DeleteUUID(uuid string) error {
 	query := fmt.Sprintf("DELETE FROM %s WHERE id = $1", sessionsTable)
 	sql, err := a.db.Exec(query, uuid)

@@ -8,6 +8,3 @@ db:
 
 app:
   port: "8080"
-
-template:
-  sitename: "Карітас України"

@@ -1,3 +1,5 @@
+DROP TABLE sessions;
+
 DROP TABLE activities;
 
 DROP TABLE beneficiaries;

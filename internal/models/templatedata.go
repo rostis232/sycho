@@ -31,44 +31,32 @@ var (
 		URI:   "/profile",
 	}
 	Clients = MenuItem{
-		Title: "Бенефіціари",
+		Title: "Клієнти",
 		URI:   "/client",
 	}
 	Journal = MenuItem{
 		Title: "Журнал",
 		URI:   "/journal",
 	}
-	Instructions = MenuItem{
-		Title: "Інструкції",
-		URI:   "/instructions",
-	}
 	Help = MenuItem{
 		Title: "Підтримка",
 		URI:   "/help",
 	}
 	Login = MenuItem{
-		Title: "Увійти",
+		Title: "Увійти/Зареєструватись",
 		URI:   "/login",
 	}
 	Logout = MenuItem{
 		Title: "Вийти",
 		URI:   "/logout",
 	}
-	Organisations = MenuItem{
-		Title: "Організації",
-		URI:   "/organisations",
-	}
-	Projects = MenuItem{
-		Title: "Проєкти",
-		URI:   "/projects",
-	}
 )
 
-var UnLoggedUserMenu = []MenuItem{Main, Instructions, Help, Login}
+var UnLoggedUserMenu = []MenuItem{Main, Help, Login}
 
-var PsychologistMenu = []MenuItem{Main, Clients, Journal, Instructions, Help, Profile, Logout}
+var PsychologistMenu = []MenuItem{Main, Clients, Journal, Help, Profile, Logout}
 
-var AdminMenu = []MenuItem{Main, Organisations, Projects, Instructions, Help, Profile, Logout}
+var AdminMenu = []MenuItem{Main, Help, Profile, Logout}
 
 func ReturnMenuByRole(role int) []MenuItem {
 	switch role {

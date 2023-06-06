@@ -37,14 +37,11 @@ func (a *AuthService) GetUserByUUID(uuid string) (models.User, error) {
 	return models.CheckUserForNils(user), nil
 }
 
-func (a *AuthService) GetUsersOrganisation(orgID int) (models.Organisation, error) {
-	org, err := a.repo.GetUsersOrganisation(orgID)
-	if err != nil {
-		return org, err
-	}
-	return models.CheckOrgForNils(org), nil
-}
 
 func (a *AuthService) DeleteUUID(uuid string) error {
 	return a.repo.DeleteUUID(uuid)
+}
+
+func (a *AuthService) NewUserRegistration (login, pass, fName, lName, email, phone string) error {
+	return nil
 }
